@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <SplitPane dividerPositions="0.3712686567164179" prefHeight="375.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="373.0" prefWidth="254.0">
+                     <content>
+                        <TableView prefHeight="375.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="91.0" text="Imię" />
+                            <TableColumn prefWidth="93.0" text="Nazwisko" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <VBox prefHeight="373.0" prefWidth="323.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="435.0" text="Szczegóły pracownika">
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <GridPane prefHeight="241.0" prefWidth="334.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="132.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="202.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" text="Imię" GridPane.halignment="RIGHT">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" text="Nazwisko" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Ulica" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Miasto" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Kod pocztowy" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Numer telefonu" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Label" GridPane.columnIndex="1" />
+                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="85.0" prefWidth="439.0">
+                          <items>
+                            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" text="Usuń" />
+                              <Button layoutX="10.0" layoutY="25.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" text="Edytuj" />
+                              <Button layoutX="101.0" layoutY="25.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" text="Nowy" />
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
