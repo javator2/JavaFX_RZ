@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.EditPersonController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.NewPersonController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -44,7 +44,7 @@
             </GridPane>
             <HBox layoutX="120.0" layoutY="376.0" prefHeight="59.0" prefWidth="200.0" style="-fx-alignment: center;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#editConfirmed" prefHeight="43.0" prefWidth="94.0" text="Zapisz zmiany" />
+                  <Button mnemonicParsing="false" onAction="#editConfirmed" prefHeight="43.0" prefWidth="94.0" text="Dodaj" />
                </children>
             </HBox>
          </children>

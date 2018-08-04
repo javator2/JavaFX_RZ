@@ -39,6 +39,10 @@ public class Main extends Application {
             loadView();
     }
 
+    public Scene getScene() {
+        return this.stage.getScene();
+    }
+
     private void loadView() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -64,6 +68,23 @@ public class Main extends Application {
 
             Stage editStage = new Stage();
             editStage.setTitle("Edytuj osobę");
+            Scene scene = new Scene(window);
+            editStage.initOwner(stage);
+            editStage.setScene(scene);
+            editStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadNewPerson() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(this.getClass().getResource("/FXML/newperson.fxml"));
+            VBox window = loader.load();
+
+            Stage editStage = new Stage();
+            editStage.setTitle("Dodaj osobę");
             Scene scene = new Scene(window);
             editStage.initOwner(stage);
             editStage.setScene(scene);

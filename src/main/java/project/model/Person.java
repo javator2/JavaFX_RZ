@@ -19,6 +19,31 @@ public class Person {
         this.cityCode = new SimpleStringProperty(cityCode);
         this.phoneNumber = new SimpleStringProperty(phoneNumber);
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName.set(lastName);
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName.set(streetName);
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName.set(cityName);
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode.set(cityCode);
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber.set(phoneNumber);
+    }
+
     public Person(String firstName, String lastName) {
         this(firstName, lastName, "Empty", "Empty", "Empty", "Empty");
     }
