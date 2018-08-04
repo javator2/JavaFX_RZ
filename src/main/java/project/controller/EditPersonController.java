@@ -3,6 +3,7 @@ package project.controller;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import project.model.Person;
@@ -13,6 +14,7 @@ public class EditPersonController {
     private final MainAppController mainWindowController = MainAppController.getController();
 
     private Person person;
+    private Stage stage;
 
     @FXML private TextField firstname;
     @FXML private TextField lastname;
@@ -23,7 +25,7 @@ public class EditPersonController {
 
     @FXML
     private void initialize() {
-        person = mainWindowController.getSelectedPerson();
+        person = (Person)mainWindowController.getTableView().getSelectionModel().getSelectedItem();
         if(person != null) {
             firstname.setText(person.getFirstName());
             lastname.setText(person.getLastName());
@@ -46,7 +48,8 @@ public class EditPersonController {
 
             mainWindowController.refreshData();
 
-            showAlert(Alert.AlertType.ERROR, "Zapisano zmiany!");
+            showAlert(Alert.AlertType.INFORMATION, "Zapisano zmiany!");
+            stage.close();
         } else {
             showAlert(Alert.AlertType.ERROR, "Niepoprawne dane w polu edycji. Żadne z pól nie może być puste!");
         }
@@ -63,4 +66,10 @@ public class EditPersonController {
         alert.setContentText(null);
         alert.show();
     }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+
 }

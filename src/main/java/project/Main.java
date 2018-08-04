@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import project.controller.EditPersonController;
 import project.controller.MainAppController;
 import project.model.Person;
 
@@ -69,6 +70,8 @@ public class Main extends Application {
             Stage editStage = new Stage();
             editStage.setTitle("Edytuj osobę");
             Scene scene = new Scene(window);
+            EditPersonController cl = (EditPersonController)loader.getController();
+            cl.setStage(editStage);
             editStage.initOwner(stage);
             editStage.setScene(scene);
             editStage.show();

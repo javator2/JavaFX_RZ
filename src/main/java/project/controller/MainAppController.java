@@ -9,8 +9,7 @@ import project.model.Person;
 public class MainAppController {
     private Main main;
     private static MainAppController controller;
-
-    private Person selectedPerson = null;
+    private Person oldSelectedPerson;
 
     @FXML private TableView<Person> mainTable;
     @FXML private TableColumn<Person, String> firstNameCol;
@@ -22,7 +21,7 @@ public class MainAppController {
     @FXML private Label cityCodeLabel;
     @FXML private Label phoneLabel;
 
-    public static MainAppController getController() {
+    static MainAppController getController() {
         return controller;
     }
 
@@ -40,7 +39,7 @@ public class MainAppController {
 
     @FXML
     private void editButtonAction() {
-        if(selectedPerson != null) main.loadPersonEdit();
+        if(mainTable.getSelectionModel().getSelectedItem() != null) main.loadPersonEdit();
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(null);
@@ -53,31 +52,17 @@ public class MainAppController {
 
     @FXML
     private void deleteButtonAction() {
-        Person selected = getSelectedPerson();
+        Person selected = mainTable.getSelectionModel().getSelectedItem();
         if(selected != null) {
             Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
             confirm.setContentText(null);
             confirm.setHeaderText("Czy na pewno chcesz usunąć użytkownika " + selected.getFirstName() + " " + selected.getLastName() + "?");
             if(confirm.showAndWait().get().equals(ButtonType.OK)) {
-                TableView.TableViewSelectionModel<Person> selModel = mainTable.getSelectionModel();
-                int row = selModel.getSelectedIndex();
-
                 main.getPersonList().remove(selected);
-
-                if(row > 0) {
-                    selModel.select(row - 1);
-                } else {
-                    if(main.getPersonList().size() > 0) {
-                        selModel.selectFirst();
-                    } else {
-                        selModel.clearSelection();
-                    }
-                }
                 selectSwitch();
                 mainTable.refresh();
             }
         }
-
     }
 
     @FXML
@@ -88,14 +73,14 @@ public class MainAppController {
     private void selectSwitch(boolean force) {
         Person currSelectedPerson = mainTable.getSelectionModel().getSelectedItem();
         if(currSelectedPerson != null) {
-            if (selectedPerson != currSelectedPerson || force) {
-                selectedPerson = currSelectedPerson;
-                firstNameLabel.setText(selectedPerson.getFirstName());
-                lastNameLabel.setText(selectedPerson.getLastName());
-                streetNameLabel.setText(selectedPerson.getStreetName());
-                cityNameLabel.setText(selectedPerson.getCityName());
-                cityCodeLabel.setText(selectedPerson.getCityCode());
-                phoneLabel.setText(selectedPerson.getPhoneNumber());
+            if (oldSelectedPerson != currSelectedPerson || force) {
+                oldSelectedPerson = currSelectedPerson;
+                firstNameLabel.setText(currSelectedPerson.getFirstName());
+                lastNameLabel.setText(currSelectedPerson.getLastName());
+                streetNameLabel.setText(currSelectedPerson.getStreetName());
+                cityNameLabel.setText(currSelectedPerson.getCityName());
+                cityCodeLabel.setText(currSelectedPerson.getCityCode());
+                phoneLabel.setText(currSelectedPerson.getPhoneNumber());
             }
         } else {
             firstNameLabel.setText("");
@@ -107,7 +92,7 @@ public class MainAppController {
         }
     }
 
-    public void addNewUser(Person person) {
+    void addNewUser(Person person) {
         main.getPersonList().add(person);
         mainTable.refresh();
     }
@@ -117,13 +102,12 @@ public class MainAppController {
         mainTable.setItems(main.getPersonList());
     }
 
-    public Person getSelectedPerson() {
-        return this.selectedPerson;
-    }
-
-    public void refreshData() {
+    void refreshData() {
         mainTable.refresh();
         selectSwitch(true);
     }
 
+    public TableView getTableView() {
+        return mainTable;
+    }
 }
